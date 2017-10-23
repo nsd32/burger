@@ -14,7 +14,7 @@
 
 			  <div class="form-group">
 			    <label for="bn">Burger Name:</label>
-			    <input type="text" id="bn" name="burger_name">
+			    <input class="" type="text" id="bn" name="burger_name">
 			  </div>
 
 			  {{!-- <div class="form-group">
@@ -23,23 +23,19 @@
 			    <input type="radio" name="devoured" value="0"> Not Devoured
 			  </div> --}}
 
-			  <button type="submit">Add Burger</button>
+			  <button class="btn btn-dark" type="submit">Add Burger</button>
 			</form><br />
 
 		</div> {{!-- column --}}
 
 		<div class="col-6">
 
-			<ul>
+			<h3>Burgers Ordered</h3>
+
+			<ul class="list-group">
 			  {{#each burgers}}
 				  {{#unless devoured}}
-				    <li>
-				      <p>
-				        {{this.id}}. {{this.burger_name}}
-
-				        <button data-devoured="{{this.devoured}}" data-id="{{this.id}}" class="devburger btn btn-danger">Devour</button>
-				      </p>
-				    </li>
+				    {{> burgers/burger-block devour=true}}
 				   {{/unless}}
 			  {{/each}}
 			</ul>
@@ -48,16 +44,12 @@
 
 		<div class="col-6">
 
-			<ul>
+			<h3>Burgers Devoured!</h3>
+
+			<ul class="list-group">
 				{{#each burgers}}
 					{{#if devoured}}
-						<li>
-				      <p>
-				        {{this.id}}. {{this.burger_name}}
-
-				        <button data-devoured="{{this.devoured}}" data-id="{{this.id}}" class="devburger btn btn-danger">Delete</button>
-				      </p>
-				    </li>
+						{{> burgers/burger-block devour=true}}
 					{{/if}}
 				{{/each}}
 			</ul>

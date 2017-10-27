@@ -1,7 +1,7 @@
 <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-warning font-weight-bold">
 	{{this.burger_name}}
 	{{#if devoured}}
-		<button class="delete-burger btn btn-danger" data-id="{{this.id}}">DELETE!</button>
+		<button class="delete-burger btn btn-danger" data-id="{{this.id}}">Delete</button>
 	{{else}}
 		<button class="change-devoured btn btn-danger" data-id="{{this.id}}" data-newdevour="{{this.devoured}}">
 			Devour!
